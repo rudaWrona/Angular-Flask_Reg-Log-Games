@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Home</ion-title>
+    <ion-title>Witaj, {{ uzytkownik ? uzytkownik : 'nieznajomy' }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content >
+
+  <ion-card *ngIf="zalogowany; else nieZalogowany">
+    
+    <ion-card-header>
+      <ion-card-title>Miło Cię znowu widzieć!</ion-card-title>
+      <ion-card-subtitle>Twoje ID: {{ uzytkownik_id }}</ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      Witaj w pierszej aplikacji służącej jedynie logowaniu. :]
+    </ion-card-content>
+
+    <ion-button (click)="logowanie()">logowanie</ion-button>
+    <ion-button (click)="rejestracja()">rejestracja</ion-button>
+    <ion-button (click)="wyloguj()">wyloguj</ion-button>
+    <ion-button (click)="bazaGier()">baza gier</ion-button>
+
+  </ion-card>
+
+</ion-content>
+
+<ng-template #nieZalogowany>
+<ion-card>
+
+  <ion-card-header>
+    <ion-card-title>Musisz się zalogować</ion-card-title>
+  </ion-card-header>
+
+  <ion-button (click)="logowanie()">logowanie</ion-button>
+  <ion-button (click)="rejestracja()">rejestracja</ion-button>
+</ion-card>
+</ng-template>
+

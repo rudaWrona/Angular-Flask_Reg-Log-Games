@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Rejestracja</ion-title>
+    <ion-title>Witaj, {{ uzytkownik ? uzytkownik : 'nieznajomy' }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Rejestracja</ion-card-title>
+      <ion-card-subtitle>zarejestruj się do aplikacji</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      Podaj nazwę użytkownika, jakiej chcesz używać i hasło.
+    </ion-card-content>
+
+    <form (ngSubmit)="zarejestrujUzytkownika()" #registerForm="ngForm">
+      <ion-item>
+        <ion-input label="Nazwa" placeholder="wpisz nazwę" name="nazwa" [(ngModel)]="nazwa" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input label="Hasło" placeholder="podaj hasło" type="password" name="haslo" [(ngModel)]="haslo" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input label="Powtórz hasło" placeholder="powtórz hasło" type="password" name="potwierdzenie" [(ngModel)]="potwierdzenie" required></ion-input>
+      </ion-item>
+
+      <ion-button expand="block" type="submit" [disabled]="!registerForm.valid">Zarejestruj</ion-button>
+
+      <br>
+
+        <ion-button (click)="logowanie()">logowanie</ion-button>
+        <ion-button (click)="wyloguj()">wyloguj</ion-button>
+
+    </form>
+
+  </ion-card>
+</ion-content>
