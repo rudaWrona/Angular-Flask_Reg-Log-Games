@@ -7,8 +7,9 @@ import { Observable, } from 'rxjs';
 })
 export class AutentykacjaService {
 
-  private apiUrl = 'http://127.0.0.1:5000';
-
+  //private apiUrl = 'http://127.0.0.1:5000';
+  private apiUrl = 'https://vanilladice.pl/bg-test';
+  
   constructor(private http: HttpClient) { }
 
   logowanie(nazwa: string, haslo: string): Observable<any> {
